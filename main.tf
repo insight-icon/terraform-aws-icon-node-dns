@@ -23,6 +23,7 @@ data "aws_route53_zone" "private_root_zone" {
 
 resource "aws_route53_record" "public" {
 //  zone_id = var.public_zone_id
+  count = var.public_ip == "" ? 0 : 1
   zone_id = var.public_zone_id == "" ? data.aws_route53_zone.public_root_zone.*.id[0] : var.public_zone_id
 
   name = local.public_dns

@@ -21,7 +21,10 @@ variable "hostname" {
 }
 
 variable "private_ip" {}
-variable "public_ip" {}
+variable "public_ip" {
+  type = string
+  default = ""
+}
 
 variable "private_zone_id" {
   type = string
