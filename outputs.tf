@@ -3,6 +3,5 @@ output "public_fqdn" {
 }
 
 output "private_fqdn" {
-  value = aws_route53_record.private.fqdn
+  value = var.private_ip == "" || var.private_ips == [] ? "" : aws_route53_record.private.*.fqdn[0]
 }
-

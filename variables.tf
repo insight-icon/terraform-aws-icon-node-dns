@@ -20,10 +20,24 @@ variable "hostname" {
   default = "bastion"
 }
 
-variable "private_ip" {}
+variable "private_ip" {
+  type = string
+  default = ""
+}
+
+variable "private_ips" {
+  type = list(string)
+  default = []
+}
+
 variable "public_ip" {
   type = string
   default = ""
+}
+
+variable "public_ips" {
+  type = list(string)
+  default = []
 }
 
 variable "private_zone_id" {
